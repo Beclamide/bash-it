@@ -54,6 +54,9 @@ SCM_NONE_CHAR='○'
 RVM_THEME_PROMPT_PREFIX=' |'
 RVM_THEME_PROMPT_SUFFIX='|'
 
+NVM_THEME_PROMPT_PREFIX=' |'
+NVM_THEME_PROMPT_SUFFIX='|'
+
 THEME_SHOW_USER_HOST=${THEME_SHOW_USER_HOST:=false}
 USER_HOST_THEME_PROMPT_PREFIX=''
 USER_HOST_THEME_PROMPT_SUFFIX=''
@@ -385,6 +388,14 @@ function chruby_version_prompt {
 
 function ruby_version_prompt {
   echo -e "$(rbfu_version_prompt)$(rbenv_version_prompt)$(rvm_version_prompt)$(chruby_version_prompt)"
+}
+
+function nvm_version_prompt {
+  echo -e "$NVM_THEME_PROMPT_PREFIX$(nvm current)$NVM_THEME_PROMPT_SUFFIX"
+}
+
+function node_version_prompt {
+  echo -e "$(nvm_version_prompt)"
 }
 
 function virtualenv_prompt {

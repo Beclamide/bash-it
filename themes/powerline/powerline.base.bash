@@ -52,6 +52,16 @@ function __powerline_ruby_prompt {
   [[ -n "${ruby_version}" ]] && echo "${RUBY_CHAR}${ruby_version}|${RUBY_THEME_PROMPT_COLOR}"
 }
 
+function __powerline_node_prompt {
+  local node_version=""
+
+  if _command_exists nvm; then
+    node_version="$(nvm_version_prompt)"
+  fi
+
+  [[ -n "${node_version}" ]] && echo "${NODE_CHAR}${node_version}|${NODE_THEME_PROMPT_COLOR}"
+}
+
 function __powerline_python_venv_prompt {
   set +u
   local python_venv=""
